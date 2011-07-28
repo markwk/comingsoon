@@ -1,5 +1,5 @@
-name = Standard
-description = Install with commonly used features pre-configured.
+name = Coming Soon
+description = Create a Prelaunch Site to collect future members.
 version = VERSION
 core = 7.x
 dependencies[] = block
@@ -23,10 +23,6 @@ dependencies[] = overlay
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
-files[] = standard.profile
+files[] = comingsoon_profile.profile
 
-; Information added by drupal.org packaging script on 2011-06-30
-version = "7.4"
-project = "drupal"
-datestamp = "1309397516"
 
