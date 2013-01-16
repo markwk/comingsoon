@@ -1,11 +1,17 @@
 <?php
+/**
+ * @file
+ * Install, update and uninstall functions for the comingsoon install profile.
+ */
 
 /**
  * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
  */
-function comingsoon_profile_install() {
+function comingsoon_install() {
   // Add text formats.
   $filtered_html_format = array(
     'format' => 'filtered_html',
@@ -61,11 +67,26 @@ function comingsoon_profile_install() {
   );
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
-
+  
+  // Enable Omega theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'omega')
+    ->execute();
+    
+  // Enable Comingsoon profile theme 'aura'.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'aura')
+    ->execute();
+  variable_set('theme_default', 'aura');
+  
   // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'bartik');
+  $default_theme = variable_get('theme_default', 'aura');
   $admin_theme = 'seven';
-  $values = array(
+  $blocks = array(
     array(
       'module' => 'system',
       'delta' => 'main',
@@ -73,46 +94,6 @@ function comingsoon_profile_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'search',
-      'delta' => 'form',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -1,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'node',
-      'delta' => 'recent',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'dashboard_main',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'navigation',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_first',
       'pages' => '',
       'cache' => -1,
     ),
@@ -122,17 +103,27 @@ function comingsoon_profile_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 10,
-      'region' => 'footer',
+      'region' => 'content',
       'pages' => '',
       'cache' => -1,
     ),
+    array(
+      'module' => 'signup_share_track',
+      'delta' => 'sst_signup_form',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),     
     array(
       'module' => 'system',
       'delta' => 'help',
       'theme' => $default_theme,
       'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
+      'weight' => -10,
+      'region' => 'content',
       'pages' => '',
       'cache' => -1,
     ),
@@ -152,7 +143,7 @@ function comingsoon_profile_install() {
       'theme' => $admin_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'help',
+      'region' => 'content',
       'pages' => '',
       'cache' => -1,
     ),
@@ -166,30 +157,10 @@ function comingsoon_profile_install() {
       'pages' => '',
       'cache' => -1,
     ),
-    array(
-      'module' => 'user',
-      'delta' => 'new',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'dashboard_sidebar',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'search',
-      'delta' => 'form',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => -10,
-      'region' => 'dashboard_sidebar',
-      'pages' => '',
-      'cache' => -1,
-    ),
   );
   $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
-  foreach ($values as $record) {
-    $query->values($record);
+  foreach ($blocks as $block) {
+    $query->values($block);
   }
   $query->execute();
 
@@ -327,7 +298,6 @@ function comingsoon_profile_install() {
     'field_name' => 'field_image',
     'type' => 'image',
     'cardinality' => 1,
-    'translatable' => TRUE,
     'locked' => FALSE,
     'indexes' => array('fid' => array('fid')),
     'settings' => array(
@@ -409,8 +379,15 @@ function comingsoon_profile_install() {
 
   // Create a Home link in the main menu.
   $item = array(
-    'link_title' => st('Home'),
-    'link_path' => '<front>',
+    'link_title' => st('Login'),
+    'link_path' => 'user/login',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($item);
+    // Create a Home link in the main menu.
+  $item = array(
+    'link_title' => st('Logout'),
+    'link_path' => 'user/logout',
     'menu_name' => 'main-menu',
   );
   menu_link_save($item);
@@ -426,4 +403,25 @@ function comingsoon_profile_install() {
     ->execute();
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
+
+  // Copy default image for Dynamic Background module
+  $handle = fopen(DRUPAL_ROOT . '/profiles/comingsoon/themes/aura/images/lightblue_wallpaper.jpg', 'r');
+  $public_uri = 'public://bg_img';
+  if ($handle && file_prepare_directory($public_uri, FILE_MODIFY_PERMISSIONS || FILE_CREATE_DIRECTORY)) {
+    $file = file_save_data($handle, 'public://bg_img/lightblue_wallpaper.jpg', FILE_EXISTS_REPLACE);
+    fclose($handle);
+  }
+
+  // Create default callback for empty page module
+  module_load_include('module', 'empty_page');
+  $callback = array(
+    'path' => 'welcome',
+    'page_title' => st('Welcome'),
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+  );
+  empty_page_save_callback((object)$callback);
+
+  // Set site front page to created empty page
+  variable_set('site_frontpage', $callback['path']);
 }

@@ -1,0 +1,68 @@
+name = ComingSoon
+description = Pre-Launch Site for Drupal
+version = VERSION
+core = 7.x
+
+; Core
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = toolbar
+dependencies[] = update
+dependencies[] = user
+dependencies[] = dblog
+dependencies[] = overlay
+dependencies[] = system
+; ComingSoon
+dependencies[] = comingsoon_bgimg
+; ComingSoon
+dependencies[] = comingsoon_about_page
+; Context
+dependencies[] = context
+dependencies[] = context_ui
+; Chaos tool suite
+dependencies[] = ctools
+; Dynamic background
+dependencies[] = dynamic_background
+dependencies[] = dynamic_background_context
+; Development
+dependencies[] = profiler_builder
+; Rules
+dependencies[] = rules_admin
+dependencies[] = rules
+; Custom modules
+dependencies[] = signup_share_track
+dependencies[] = signup_share_track_exports
+; Views
+dependencies[] = views_data_export
+dependencies[] = views_ui
+dependencies[] = views
+; Features
+dependencies[] = features
+; Other
+dependencies[] = strongarm
+dependencies[] = entity
+dependencies[] = entity_token
+dependencies[] = comingsoon
+dependencies[] = empty_page
+
