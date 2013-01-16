@@ -2,6 +2,12 @@ h1. ComingSoon Distribution for Drupal
 
 "ComingSoon":http://drupal.org/project/comingsoon is a Drupal 7 distribution that allows you to quickly install a pre-launch site to announce your project and collect early sign ups. 
 
+h2. Description 
+
+"Coming Soon" is a distribution for creating a launch site for an upcoming project, idea or business. In it's most basic sense, it's a Drupal clone of LaunchRock.com. It provides a simple signup / registration form on the homepage and unique share pages for new users. So that before the site, app or business itself actual launches, you can start to get new members. En bref, Get people interested in your project before it launches!
+
+*Summary*: It will provide a default installation profile for collecting member signups and site promotion.
+
 h2. Features:
 
 TODO
