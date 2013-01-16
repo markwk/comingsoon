@@ -1,0 +1,11 @@
+h1. ComingSoon Distribution for Drupal 
+
+"ComingSoon":http://drupal.org/project/comingsoon is a Drupal 7 distribution that allows you to quickly install a pre-launch site to announce your project and collect early sign ups. 
+
+h2. Features:
+
+TODO
+
+h2. Credits:
+
+ComingSoon was created by Mark Koester (markwkoester@gmail.com) from "Int3c.com":http://int3c.com. Drupal User: "markwkwk":http://drupal.org/user/1094790/. 
