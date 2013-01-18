@@ -48,7 +48,7 @@ projects[views_send][subdir] = "contrib"
 projects[comingsoon_features][version] = "1.0-alpha1" 
 projects[comingsoon_features][subdir] = "custom"
 
-projects[signup_share_track][version] = "1.0-alpha2" 
+projects[signup_share_track][version] = "1.0-alpha3" 
 projects[signup_share_track][subdir] = "custom"
 
 ; Themes
