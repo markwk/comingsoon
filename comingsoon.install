@@ -94,6 +94,7 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
+      'visibility' => 0,
       'pages' => '',
       'cache' => -1,
     ),
@@ -104,6 +105,7 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => 10,
       'region' => 'content',
+      'visibility' => 0,
       'pages' => '',
       'cache' => -1,
     ),
@@ -114,7 +116,8 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '',
+      'visibility' => 1,
+      'pages' => '<front>',
       'cache' => -1,
     ),     
     array(
@@ -124,6 +127,7 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => -10,
       'region' => 'content',
+      'visibility' => 0,
       'pages' => '',
       'cache' => -1,
     ),
@@ -134,6 +138,7 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
+      'visibility' => 0,
       'pages' => '',
       'cache' => -1,
     ),
@@ -144,6 +149,7 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
+      'visibility' => 0,
       'pages' => '',
       'cache' => -1,
     ),
@@ -154,11 +160,12 @@ function comingsoon_install() {
       'status' => 1,
       'weight' => 10,
       'region' => 'content',
+      'visibility' => 0,
       'pages' => '',
       'cache' => -1,
     ),
   );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'visibility', 'pages', 'cache'));
   foreach ($blocks as $block) {
     $query->values($block);
   }
@@ -424,4 +431,7 @@ function comingsoon_install() {
 
   // Set site front page to created empty page
   variable_set('site_frontpage', $callback['path']);
+
+  // Set SST settings to skip user registration
+  variable_set('sst_skip_signup', TRUE);
 }
