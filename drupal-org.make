@@ -8,16 +8,16 @@ api = "2"
 projects[ctools][version] = "1.2"
 projects[ctools][subdir] = "contrib"
 
-projects[context][version] = "3.0-beta4"
+projects[context][version] = "3.0-beta6"
 projects[context][subdir] = "contrib"
 
-projects[profiler_builder][version] = "1.0-rc2"
+projects[profiler_builder][version] = "1.0-rc3"
 projects[profiler_builder][subdir] = "contrib"
 
 projects[dynamic_background][version] = "1.10"
 projects[dynamic_background][subdir] = "contrib"
 
-projects[defaultcontent][version] = "1.0-alpha7"
+projects[defaultcontent][version] = "1.0-alpha9"
 projects[defaultcontent][subdir] = "contrib"
 
 projects[features][version] = "1.0"
@@ -26,7 +26,7 @@ projects[features][subdir] = "contrib"
 projects[empty_page][version] = "1.0"
 projects[empty_page][subdir] = "contrib"
 
-projects[entity][version] = "1.0-rc3"
+projects[entity][version] = "1.0"
 projects[entity][subdir] = "contrib"
 
 projects[strongarm][version] = "2.0"
@@ -35,13 +35,13 @@ projects[strongarm][subdir] = "contrib"
 projects[rules][version] = "2.2"
 projects[rules][subdir] = "contrib"
 
-projects[views][version] = "3.5"
+projects[views][version] = "3.6"
 projects[views][subdir] = "contrib"
 
 projects[views_data_export][version] = "3.0-beta6"
 projects[views_data_export][subdir] = "contrib"
 
-projects[views_send][version] = "1.0-rc1"
+projects[views_send][version] = "1.0-rc2"
 projects[views_send][subdir] = "contrib"
 
 ; Custom Modules
