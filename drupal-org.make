@@ -5,13 +5,13 @@ api = "2"
 ; projects[drupal][version] = "7.x"
 
 ; Modules
-projects[ctools][version] = "1.2"
+projects[ctools][version] = "1.3"
 projects[ctools][subdir] = "contrib"
 
 projects[context][version] = "3.0-beta6"
 projects[context][subdir] = "contrib"
 
-projects[profiler_builder][version] = "1.0-rc3"
+projects[profiler_builder][version] = "1.0-rc4"
 projects[profiler_builder][subdir] = "contrib"
 
 projects[dynamic_background][version] = "1.10"
@@ -26,16 +26,16 @@ projects[features][subdir] = "contrib"
 projects[empty_page][version] = "1.0"
 projects[empty_page][subdir] = "contrib"
 
-projects[entity][version] = "1.0"
+projects[entity][version] = "1.1"
 projects[entity][subdir] = "contrib"
 
 projects[strongarm][version] = "2.0"
 projects[strongarm][subdir] = "contrib"
 
-projects[rules][version] = "2.2"
+projects[rules][version] = "2.3"
 projects[rules][subdir] = "contrib"
 
-projects[views][version] = "3.6"
+projects[views][version] = "3.7"
 projects[views][subdir] = "contrib"
 
 projects[views_data_export][version] = "3.0-beta6"
@@ -48,7 +48,7 @@ projects[views_send][subdir] = "contrib"
 projects[comingsoon_features][version] = "1.0-alpha1" 
 projects[comingsoon_features][subdir] = "custom"
 
-projects[signup_share_track][version] = "1.0-alpha3" 
+projects[signup_share_track][version] = "1.0-alpha4" 
 projects[signup_share_track][subdir] = "custom"
 
 ; Themes
