@@ -8,13 +8,13 @@ api = "2"
 projects[ctools][version] = "1.3"
 projects[ctools][subdir] = "contrib"
 
-projects[context][version] = "3.0-beta6"
+projects[context][version] = "3.0-beta7"
 projects[context][subdir] = "contrib"
 
-projects[profiler_builder][version] = "1.0-rc4"
+projects[profiler_builder][version] = "1.0"
 projects[profiler_builder][subdir] = "contrib"
 
-projects[dynamic_background][version] = "1.10"
+projects[dynamic_background][version] = "1.11"
 projects[dynamic_background][subdir] = "contrib"
 
 projects[defaultcontent][version] = "1.0-alpha9"
@@ -41,7 +41,7 @@ projects[views][subdir] = "contrib"
 projects[views_data_export][version] = "3.0-beta6"
 projects[views_data_export][subdir] = "contrib"
 
-projects[views_send][version] = "1.0-rc2"
+projects[views_send][version] = "1.0-rc3"
 projects[views_send][subdir] = "contrib"
 
 ; Custom Modules
